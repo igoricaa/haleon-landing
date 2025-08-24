@@ -161,31 +161,6 @@ export default function VideoSection({
                       />
                     )}
                   </motion.button>
-
-                  {/* Video Title */}
-                  <motion.h3
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    viewport={{ once: true }}
-                    className='mt-6 text-xl sm:text-2xl font-semibold text-center text-foreground'
-                  >
-                    {videoUrl
-                      ? 'Kliknite da reprodukujete'
-                      : 'Video uskoro dostupan'}
-                  </motion.h3>
-
-                  <motion.p
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
-                    viewport={{ once: true }}
-                    className='mt-2 text-sm sm:text-base text-center text-muted-foreground max-w-md'
-                  >
-                    {videoUrl
-                      ? 'Saznajte kako da održite zdravlje zuba vaše dece tokom školske godine'
-                      : 'Pripremamo edukativni sadržaj o oralnom zdravlju dece'}
-                  </motion.p>
                 </div>
               )}
 
