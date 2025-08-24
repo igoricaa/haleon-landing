@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
@@ -28,8 +27,6 @@ function PromotionCard({
   storeUrl,
   buttonText,
 }: PromotionCardProps) {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -39,11 +36,15 @@ function PromotionCard({
         delay: index * 0.2,
         ease: 'easeOut',
       }}
+      whileHover={{
+        scale: 1.05,
+        boxShadow:
+          '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
+        transition: { duration: 0.3 },
+      }}
       viewport={{ once: true, margin: '-100px' }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        'relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300',
+        'relative overflow-hidden rounded-xl bg-white shadow-lg',
         'border border-gray-100 p-6 sm:p-8'
       )}
     >
@@ -73,11 +74,7 @@ function PromotionCard({
         {/* Gift Section */}
         <div className='flex flex-col items-center space-y-4'>
           <motion.div
-            animate={
-              isHovered
-                ? { scale: 1.1, rotate: 5 }
-                : { scale: 1, rotate: 0 }
-            }
+            whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ duration: 0.2 }}
             className={cn(
               'p-6 rounded-full shadow-md',
