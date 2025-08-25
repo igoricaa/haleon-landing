@@ -55,7 +55,7 @@ function PromotionCard({
       />
 
       {/* Card content */}
-      <div className='flex flex-col items-center space-y-8 text-center'>
+      <div className='flex flex-col items-center space-y-8 text-center justify-between h-full'>
         {/* Retailer Logo */}
         <motion.div
           whileHover={{ scale: 1.05 }}
@@ -140,7 +140,7 @@ export default function PromotionSection() {
       giftImage: '/hourglass.png',
       giftImageAlt: 'Peščani sat - poklon za kupovinu u Lilly radnjama',
       brandColor: '#2AB0E5', // Aquafresh color
-      storeUrl: '#', // Placeholder for actual store locator URL
+      storeUrl: 'https://www.lilly.rs/nasi-objekti',
       buttonText: 'Pronađi Lilly radnju',
     },
     {
@@ -151,13 +151,13 @@ export default function PromotionSection() {
       giftImage: '/notebook.png',
       giftImageAlt: 'Školska sveska - poklon za kupovinu u Maxi objektima',
       brandColor: '#00ACBA', // Sensodyne color
-      storeUrl: '#', // Placeholder for actual store locator URL
+      storeUrl: 'https://www.maxi.rs/storelocator',
       buttonText: 'Pronađi Maxi radnju',
     },
   ];
 
   return (
-    <section className='py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white'>
+    <section className='py-16 sm:py-24 bg-gradient-to-b from-gray-200 to-white'>
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
         {/* Section Header */}
         <motion.div

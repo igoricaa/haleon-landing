@@ -44,7 +44,7 @@ export default function VideoSection({
   return (
     <section
       className={cn(
-        'relative py-16 sm:py-24 lg:py-32 overflow-hidden bg-gradient-to-b from-gray-50 to-white',
+        'relative py-16 sm:py-24 lg:py-32 overflow-hidden bg-gradient-to-b from-gray-200 to-white',
         className
       )}
       aria-labelledby='video-section-title'

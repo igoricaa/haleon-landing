@@ -126,8 +126,8 @@ function ProductCard({ product }: { product: Product }) {
         scale: 1.03,
         boxShadow:
           product.brand === 'aquafresh'
-            ? '0 25px 50px -12px rgba(42, 176, 229, 0.1)'
-            : '0 25px 50px -12px rgba(0, 172, 186, 0.1)',
+            ? '0 25px 50px -12px rgba(42, 176, 229, 0.3)'
+            : '0 25px 50px -12px rgba(0, 172, 186, 0.3)',
         borderColor:
           product.brand === 'aquafresh'
             ? 'rgba(42, 176, 229, 0.4)'
@@ -135,8 +135,10 @@ function ProductCard({ product }: { product: Product }) {
         transition: { duration: 0.3 },
       }}
       className={cn(
-        'group relative bg-card rounded-xl border-2',
-        brand.accentClass
+        'group relative bg-card rounded-xl shadow-md',
+        product.brand === 'aquafresh'
+          ? 'shadow-[0_25px_50px_-12px_rgba(42,176,229,0.1)]'
+          : 'shadow-[0_25px_50px_-12px_rgba(0,172,186,0.1)]'
       )}
     >
       <div>
@@ -194,7 +196,7 @@ function ProductCard({ product }: { product: Product }) {
 
 export default function ProductGrid() {
   return (
-    <section className='py-16 px-4 bg-gradient-to-b from-white to-gray-50'>
+    <section className='py-16 px-4 bg-gradient-to-b from-white to-gray-200'>
       <div className='max-w-7xl mx-auto'>
         {/* Section Header */}
         <motion.div
