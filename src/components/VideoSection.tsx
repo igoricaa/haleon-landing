@@ -4,6 +4,7 @@ import { Loader2, Play } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import DecorativeElements from './DecorativeElements';
 
 interface VideoSectionProps {
   /** Optional video URL for YouTube embed or direct video link */
@@ -49,26 +50,8 @@ export default function VideoSection({
       )}
       aria-labelledby='video-section-title'
     >
-      {/* Decorative elements */}
-      <div className='absolute inset-0 pointer-events-none'>
-        {/* Top decoration */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 0.1, scale: 1 }}
-          transition={{ duration: 1.5 }}
-          viewport={{ once: true }}
-          className='absolute top-10 left-10 w-32 h-32 rounded-full bg-gradient-to-br from-aquafresh to-aquafresh-light'
-        />
-
-        {/* Bottom decoration */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.6 }}
-          whileInView={{ opacity: 0.08, scale: 1 }}
-          transition={{ duration: 1.5, delay: 0.3 }}
-          viewport={{ once: true }}
-          className='absolute bottom-16 right-16 w-48 h-48 rounded-full bg-gradient-to-tl from-sensodyne to-sensodyne-light'
-        />
-      </div>
+      {/* Decorative floating elements */}
+      <DecorativeElements section="video" />
 
       <div className='relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
         {/* Section Header */}

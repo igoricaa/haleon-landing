@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import DecorativeElements from './DecorativeElements';
 
 interface PromotionCardProps {
   retailerLogo: string;
@@ -157,8 +158,11 @@ export default function PromotionSection() {
   ];
 
   return (
-    <section className='py-16 sm:py-24 bg-gradient-to-b from-gray-200 to-white'>
-      <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+    <section className='relative py-16 sm:py-24 bg-gradient-to-b from-gray-200 to-white overflow-hidden'>
+      {/* Decorative floating elements */}
+      <DecorativeElements section="promotion" />
+      
+      <div className='relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

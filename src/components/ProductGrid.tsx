@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import DecorativeElements from './DecorativeElements';
 
 interface Product {
   id: string;
@@ -88,7 +89,7 @@ const brandConfig = {
   },
 };
 
-const containerVariants = {
+const _containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -113,7 +114,7 @@ const cardVariants = {
 };
 
 function ProductCard({ product }: { product: Product }) {
-  const brand = brandConfig[product.brand];
+  const _brand = brandConfig[product.brand];
 
   return (
     <motion.div
@@ -187,8 +188,11 @@ function ProductCard({ product }: { product: Product }) {
 
 export default function ProductGrid() {
   return (
-    <section className='py-16 px-4 bg-gradient-to-b from-white to-gray-200'>
-      <div className='max-w-7xl mx-auto'>
+    <section className='relative py-16 px-4 bg-gradient-to-b from-white to-gray-200 overflow-hidden'>
+      {/* Decorative floating elements */}
+      <DecorativeElements section="product-grid" />
+      
+      <div className='relative z-10 max-w-7xl mx-auto'>
         {/* Section Header */}
         <motion.div
           className='text-center mb-16'
