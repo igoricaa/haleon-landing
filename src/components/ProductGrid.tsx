@@ -135,7 +135,7 @@ function ProductCard({ product }: { product: Product }) {
         transition: { duration: 0.3 },
       }}
       className={cn(
-        'group relative bg-card rounded-xl shadow-md',
+        'group relative bg-card rounded-xl shadow-md transition-shadow duration-300',
         product.brand === 'aquafresh'
           ? 'shadow-[0_25px_50px_-12px_rgba(42,176,229,0.1)]'
           : 'shadow-[0_25px_50px_-12px_rgba(0,172,186,0.1)]'
@@ -181,15 +181,6 @@ function ProductCard({ product }: { product: Product }) {
           </p>
         </div>
       </div>
-
-      {/* Brand Accent Border */}
-      {/* <div
-        className={cn(
-          'absolute inset-x-0 bottom-0 h-1 rounded-b-xl transition-all duration-300',
-          product.brand === 'aquafresh' ? 'bg-aquafresh' : 'bg-sensodyne',
-          'opacity-0 group-hover:opacity-100'
-        )}
-      /> */}
     </motion.div>
   );
 }
