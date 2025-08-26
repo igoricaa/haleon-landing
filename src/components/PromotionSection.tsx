@@ -15,6 +15,7 @@ interface PromotionCardProps {
   index: number;
   storeUrl: string;
   buttonText: string;
+  additionalInfo: string;
 }
 
 function PromotionCard({
@@ -27,107 +28,115 @@ function PromotionCard({
   index,
   storeUrl,
   buttonText,
+  additionalInfo,
 }: PromotionCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.6,
-        delay: index * 0.2,
-        ease: 'easeOut',
-      }}
-      whileHover={{
-        scale: 1.05,
-        boxShadow:
-          '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
-        transition: { duration: 0.3 },
-      }}
-      viewport={{ once: true, margin: '-100px' }}
-      className={cn(
-        'relative overflow-hidden rounded-xl bg-white shadow-lg',
-        'border border-gray-100 p-6 sm:p-8'
-      )}
-    >
-      {/* Brand color accent bar */}
-      <div
-        className='absolute top-0 left-0 right-0 h-1'
-        style={{ backgroundColor: brandColor }}
-      />
+    <div>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.6,
+          delay: index * 0.2,
+          ease: 'easeOut',
+        }}
+        whileHover={{
+          scale: 1.05,
+          boxShadow:
+            '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
+          transition: { duration: 0.3 },
+        }}
+        viewport={{ once: true, margin: '-100px' }}
+        className={cn(
+          'relative overflow-hidden rounded-xl bg-white shadow-lg',
+          'border border-gray-100 p-6 sm:p-8'
+        )}
+      >
+        {/* Brand color accent bar */}
+        <div
+          className='absolute top-0 left-0 right-0 h-1'
+          style={{ backgroundColor: brandColor }}
+        />
 
-      {/* Card content */}
-      <div className='flex flex-col items-center space-y-8 text-center justify-between h-full'>
-        {/* Retailer Logo */}
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.2 }}
-          className='flex-shrink-0'
-        >
-          <Image
-            src={retailerLogo}
-            alt={retailerLogoAlt}
-            width={160}
-            height={60}
-            className='h-auto w-32 sm:w-36 object-contain'
-          />
-        </motion.div>
-
-        {/* Gift Section */}
-        <div className='flex flex-col items-center space-y-4'>
+        {/* Card content */}
+        <div className='flex flex-col items-center space-y-8 text-center justify-between h-full'>
+          {/* Retailer Logo */}
           <motion.div
-            whileHover={{ scale: 1.1, rotate: 5 }}
+            whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
-            className={cn(
-              'p-6 rounded-full shadow-md',
-              'flex items-center justify-center'
-            )}
-            style={{ backgroundColor: `${brandColor}15` }}
+            className='flex-shrink-0'
           >
             <Image
-              src={giftImage}
-              alt={giftImageAlt}
-              width={120}
-              height={120}
-              className='w-24 h-24 sm:w-30 sm:h-30 object-contain'
+              src={retailerLogo}
+              alt={retailerLogoAlt}
+              width={160}
+              height={60}
+              className='w-auto h-10 sm:h-12 object-contain'
             />
           </motion.div>
+
+          {/* Gift Section */}
+          <div className='flex flex-col items-center space-y-4'>
+            <motion.div
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ duration: 0.2 }}
+              className={cn(
+                'p-6 rounded-full shadow-md',
+                'flex items-center justify-center'
+              )}
+              style={{ backgroundColor: `${brandColor}15` }}
+            >
+              <Image
+                src={giftImage}
+                alt={giftImageAlt}
+                width={120}
+                height={120}
+                className='w-24 h-24 sm:w-30 sm:h-30 object-contain'
+              />
+            </motion.div>
+          </div>
+
+          {/* Promotion Text */}
+          <div className='space-y-4'>
+            <p className='text-base sm:text-base text-gray-800 leading-relaxed max-w-sm'>
+              {promotionText}
+            </p>
+          </div>
+
+          {/* CTA Button */}
+          <motion.a
+            href={storeUrl}
+            target='_blank'
+            rel='noopener noreferrer'
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className={cn(
+              'inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium text-white shadow-md hover:shadow-lg transition-all duration-300',
+              'text-sm sm:text-base w-full'
+            )}
+            style={{ backgroundColor: brandColor }}
+          >
+            {buttonText}
+          </motion.a>
         </div>
 
-        {/* Promotion Text */}
-        <div className='space-y-4'>
-          <p className='text-base sm:text-base text-gray-800 leading-relaxed max-w-sm'>
-            {promotionText}
-          </p>
-        </div>
-
-        {/* CTA Button */}
-        <motion.a
-          href={storeUrl}
-          target='_blank'
-          rel='noopener noreferrer'
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ duration: 0.2 }}
-          className={cn(
-            'inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium text-white shadow-md hover:shadow-lg transition-all duration-300',
-            'text-sm sm:text-base w-full'
-          )}
+        {/* Decorative elements */}
+        <div
+          className='absolute -top-10 -right-10 w-20 h-20 rounded-full opacity-10'
           style={{ backgroundColor: brandColor }}
-        >
-          {buttonText}
-        </motion.a>
-      </div>
+        />
+        <div
+          className='absolute -bottom-5 -left-5 w-12 h-12 rounded-full opacity-5'
+          style={{ backgroundColor: brandColor }}
+        />
+      </motion.div>
 
-      {/* Decorative elements */}
-      <div
-        className='absolute -top-10 -right-10 w-20 h-20 rounded-full opacity-10'
-        style={{ backgroundColor: brandColor }}
-      />
-      <div
-        className='absolute -bottom-5 -left-5 w-12 h-12 rounded-full opacity-5'
-        style={{ backgroundColor: brandColor }}
-      />
-    </motion.div>
+      {/* Additional Info */}
+      <div className='text-center mt-6 sm:mt-10'>
+        <p className='text-sm text-black max-w-2xl mx-auto'>{additionalInfo}</p>
+      </div>
+    </div>
   );
 }
 
@@ -143,6 +152,8 @@ export default function PromotionSection() {
       brandColor: '#2AB0E5', // Aquafresh color
       storeUrl: 'https://www.lilly.rs/nasi-objekti',
       buttonText: 'Pronađi Lilly radnju',
+      additionalInfo:
+        'Promocija važi u periodu 01-30.09.2025. godine ili do isteka zaliha.',
     },
     {
       retailerLogo: '/max-novi-logo.png',
@@ -154,14 +165,16 @@ export default function PromotionSection() {
       brandColor: '#00ACBA', // Sensodyne color
       storeUrl: 'https://www.maxi.rs/storelocator',
       buttonText: 'Pronađi Maxi radnju',
+      additionalInfo:
+        'Promocija važi u periodu 25.08-20.09.2025. godine ili do isteka zaliha.',
     },
   ];
 
   return (
     <section className='relative py-16 sm:py-24 bg-gradient-to-b from-gray-200 to-white overflow-hidden'>
       {/* Decorative floating elements */}
-      <DecorativeElements section="promotion" />
-      
+      <DecorativeElements section='promotion' />
+
       <div className='relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
         {/* Section Header */}
         <motion.div
@@ -185,23 +198,18 @@ export default function PromotionSection() {
         {/* Promotion Cards Grid */}
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto'>
           {promotions.map((promotion, index) => (
-            <PromotionCard key={index} {...promotion} index={index} />
+            <PromotionCard
+              key={index}
+              {...promotion}
+              index={index}
+              additionalInfo={promotion.additionalInfo}
+            />
           ))}
         </div>
 
-        {/* Additional Info */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-          className='text-center mt-12 sm:mt-16'
-        >
-          <p className='text-sm text-gray-600 max-w-2xl mx-auto'>
-            * Promocija važi do isteka zaliha. Detalji o promociji dostupni su u
-            prodajnim objektima.
-          </p>
-        </motion.div>
+        <p className='text-center text-sm text-gray-600 mt-6'>
+          Detalji o promociji dostupni su u prodajnim objektima.
+        </p>
       </div>
     </section>
   );

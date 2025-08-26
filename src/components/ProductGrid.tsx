@@ -29,7 +29,7 @@ const products: Product[] = [
     id: 'aquafresh-splash',
     name: 'Aquafresh Splash Kids Strawbery & Mint',
     image: '/aquafresh-Splash.png',
-    ageRange: '6+ godina',
+    ageRange: '3-8 godina',
     description:
       'Aquafresh Splash jagoda & menta je pasta za zube specijalno dizajnirana za decu da obezbedi zaštitu mlečnih i novih stalnih zuba.',
     brand: 'aquafresh',
@@ -39,7 +39,7 @@ const products: Product[] = [
     name: 'Aquafresh Big Teeth Junior',
     image:
       '/aquafresh-TB-Big-Teeth-extra-soft-PawPatrol_new_151x36x30_idea01-01.png',
-    ageRange: '6+ godina',
+    ageRange: '6-8 godina',
     description:
       'Aquafresh Big Teeth je zubna pasta koja penuša, sa trostrukom zaštitom, specijalno kreirana za decu od 6 do 8 godina. Ona pomaže u jačanju zubne gleđi i sprečava negativno dejstvo šećerne kiseline iz plaka, glavnog uzroka kvarenja zuba. Ne sadrži šećer, sa blagim ukusom mente.',
     brand: 'aquafresh',
@@ -48,7 +48,7 @@ const products: Product[] = [
     id: 'aquafresh-advance',
     name: 'Aquafresh Advance Kids',
     image: '/aquafresh-advance.png',
-    ageRange: '12+ godina',
+    ageRange: '9-12 godina',
     description:
       'Pasta za zube Aquafresh Advance je specijalno kreirana za decu uzrasta 9 do 12 godina. Ona pruža negu i zaštitu, za jače stalne zube. Sa 6 ključnih prednosti za snažnije zube: pomaže u očuvanju zdravlja desni, sprečavanju karijesa, zaštiti desni, nežna prema zubima, bori se protiv plaka i čisti prostor između zuba.',
     brand: 'aquafresh',
